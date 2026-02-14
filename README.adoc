@@ -22,14 +22,16 @@ Each function has its own file.
 Each function also has its own file in the `doc` directory.
 Some functions may depend on others, forming a dependency graph.
 
-The library is generally fail-fast and requires you to use `set -e`.
-All other fail-fast features provided by various shells are also
-supported, such as `set -u` and `set -o pipefail`.
-However, unless otherwise noted, you should not call the library in any
-context where `set -e` is suspended, such as in an `if` condition or on
-the left side of an `&&` or `||` operator.
-
 The library reserves all identifiers that start with `qsh_` or `QSH_`.
+
+Unless otherwise noted, all library functions are fail-fast and require
+you to use `set -e`.
+You also shouldn't call these functions in any context where `set -e` is
+suspended, such as in an `if` condition or on the left side of an `&&`
+or `||` operator.
+
+Unless otherwise noted, all library functions work fine with `set -u`,
+`set -o pipefail`, and `shopt -s inherit_errexit`.
 
 == Usage
 
