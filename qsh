@@ -126,13 +126,13 @@ while :; do
   func=$1
   shift
 
-  case $func in (qsh[_]*)
+  case $func in (qsh_*)
     case $func in (*[!0-9A-Z_a-z]*)
       interpret=file
     ;; (*)
       interpret=explicit
     esac
-  ;; (:qsh[_]*)
+  ;; (:qsh_*)
     func=${func#:}
     case $func in (*[!0-9A-Z_a-z]*)
       func=:$func
@@ -195,7 +195,7 @@ while :; do
         }
       }
       {
-        while ((i = match($0, /qsh[_]/)) > 0) {
+        while ((i = match($0, /qsh_[0-9A-Z_a-z]/)) > 0) {
           $0 = substr($0, i);
           i = match($0, /[^0-9A-Z_a-z]/);
           if (i > 0) {
