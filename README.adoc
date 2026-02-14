@@ -10,14 +10,16 @@
 
 = qsh
 
-qsh is a general-purpose shell library.
+qsh is a general-purpose shell scripting library.
 
-The library supports any POSIX-compatible shell and environment all the
-way down to the
+The library supports any POSIX-compatible shell and environment down to
+the
 link:https://publications.opengroup.org/c43x[UNIX 95]
 specification.
 
 The library consists of the functions in the `include` directory.
+Each function has its own file, but some functions may depend on others.
+Each function also has a documentation file in the `doc` directory.
 All identifiers that start with `qsh_` or `QSH_` are reserved.
 
 The library is generally fail-fast and requires you to use `set -e`.
