@@ -1,0 +1,56 @@
+//
+// The authors of this file have waived all copyright and
+// related or neighboring rights to the extent permitted by
+// law as described by the CC0 1.0 Universal Public Domain
+// Dedication. You should have received a copy of the full
+// dedication along with this file, typically as a file
+// named <CC0-1.0.txt>. If not, it may be available at
+// <https://creativecommons.org/publicdomain/zero/1.0/>.
+//
+
+= qsh
+
+qsh is a POSIX-compatible library for shell scripting.
+
+The library is POSIX-compatible down to the
+link:https://publications.opengroup.org/c43x[UNIX 95]
+specification.
+
+The library consists of the functions in the `include` directory.
+Each function has its own file.
+All identifiers that start with `qsh_` or `QSH_` are reserved.
+
+The library is generally fail-fast and requires you to use `set -e` in
+your script.
+The library is also compatible with all other fail-fast error handling
+features provided by various POSIX-compatible shells, such as `set -u`
+and `set -o pipefail`.
+However, unless otherwise noted, the library should not be called in any
+context where `set -e` is suspended, such as in an `if` expression or in
+the non-last command of an AND-OR list.
+
+== Usage
+
+Clone this repository and use the `qsh` script to generate code to copy
+into your own script.
+When you run `./qsh`, you can specify the qsh functions you want, or
+files to scan for qsh function names.
+The script will automatically output any other necessary qsh functions
+in the dependency graph.
+The output will be written to `stdout`.
+
+For example:
+
+. `./qsh qsh_barf` will output the `qsh_barf` function, along with any
+other necessary qsh functions.
+
+. `./qsh foo.sh` will scan `foo.sh` for qsh function names and output
+those functions, along with any other necessary qsh functions.
+
+. `./qsh qsh_barf foo.sh` will combine the previous two examples.
+
+== Documentation
+
+link:doc/qsh_barf.adoc[`qsh_barf`]
+
+//

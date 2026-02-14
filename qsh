@@ -1,0 +1,240 @@
+#! /bin/sh
+
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+set -e -u || exit $?
+
+#-----------------------------------------------------------------------
+#
+# This section was generated using qsh.
+# See <https://github.com/quinngrier/qsh>.
+#
+# The authors of this section have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+qsh_barf() {
+
+  case $# in (0)
+    set "Unknown error"
+  esac
+
+  qsh_barf_message="$0: Error:"
+  for qsh_barf_arg; do
+    qsh_barf_message="$qsh_barf_message $qsh_barf_arg"
+  done
+  qsh_barf_message="$qsh_barf_message."
+
+  printf '%s\n' "$qsh_barf_message" >&2
+
+  exit "${qsh_barf_status-1}"
+
+}
+
+#-----------------------------------------------------------------------
+
+unset IFS
+
+nl='
+'
+
+parse_options=1
+
+funcs=
+
+while :; do
+
+  case $# in (0)
+    break
+  esac
+
+  case $parse_options in (1)
+    case $1 in (--)
+      parse_options=0
+      shift
+      continue
+
+    ;; (--*)
+      x=${1%%=*}
+      qsh_barf "Unknown option: $x"
+
+    ;; (-?*)
+      x=$(printf '%.2s' "$1")
+      case $x in (-)
+        x="-$nl"
+      esac
+      qsh_barf "Unknown option: $x"
+
+    esac
+  esac
+
+  funcs="$funcs $1"
+
+  shift
+
+done
+
+set -- $funcs
+
+case $0 in (/* | ./*)
+  include=$0
+;; (*)
+  include=./$0
+esac
+include=${include%/*}/include
+
+seen_once=
+seen_twice=
+
+cat <<'EOF'
+#-----------------------------------------------------------------------
+#
+# This section was generated using qsh.
+# See <https://github.com/quinngrier/qsh>.
+#
+# The authors of this section have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+EOF
+
+unset hold
+
+while :; do
+
+  case $# in (0)
+    break
+  esac
+
+  func=$1
+  shift
+
+  case $func in (qsh_*)
+    case $func in (*[!0-9A-Z_a-z]*)
+      interpret=file
+    ;; (*)
+      interpret=explicit
+    esac
+  ;; (:qsh_*)
+    func=${func#:}
+    case $func in (*[!0-9A-Z_a-z]*)
+      func=:$func
+      interpret=file
+    ;; (*)
+      interpret=implicit
+    esac
+  ;; (*)
+    interpret=file
+  esac
+
+  case $interpret in (explicit | implicit)
+
+    case $seen_twice in (*" $func "*)
+      continue
+    esac
+
+    file=$include/$func.sh
+
+    case $seen_once in (*" $func "*)
+      awk -- '
+        {
+          if ($0 ~ /^$/) {
+            past_copyright_notice = 1;
+          }
+          if (past_copyright_notice) {
+            print $0;
+          }
+        }
+      ' "$file"
+      seen_twice="$seen_twice $func "
+      continue
+    esac
+
+    test -f "$file" && :
+    s=$?
+    case $s in (0)
+      :
+    ;; (1)
+      case $interpret in (explicit)
+        qsh_barf "Unknown function: $func"
+      ;; (implicit)
+        seen_twice="$seen_twice $func "
+        continue
+      esac
+    ;; (*)
+      exit $s
+    esac
+
+    set -- "$file" "$@"
+    seen_once="$seen_once $func "
+    hold=$func
+
+  ;; (file)
+
+    script='
+      BEGIN {
+        if (hold) {
+          seen[hold] = 1;
+        }
+      }
+      {
+        while ((i = match($0, /qsh_/)) > 0) {
+          $0 = substr($0, i);
+          i = match($0, /[^0-9A-Z_a-z]/);
+          if (i > 0) {
+            x = substr($0, 1, i - 1);
+            $0 = substr($0, i);
+          } else {
+            x = $0;
+            $0 = "";
+          }
+          if (!seen[x]) {
+            if (hold) {
+              print ":" x;
+            } else {
+              print x;
+            }
+            seen[x] = 1;
+          }
+        }
+      }
+    '
+
+    case $func in (-)
+      deps=$(awk ${hold+-v hold=$hold} -- "$script")
+    ;; (*)
+      deps=$(awk ${hold+-v hold=$hold} -- "$script" "$func")
+    esac
+
+    case ${hold+x} in (?*)
+      set -- $deps $hold "$@"
+      unset hold
+    ;; (*)
+      set -- $deps "$@"
+    esac
+
+  esac
+
+done
+
+cat <<'EOF'
+
+#-----------------------------------------------------------------------
+EOF
