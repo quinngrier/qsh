@@ -30,8 +30,10 @@ You also shouldn't call these functions in any context where `set -e` is
 suspended, such as in an `if` condition or on the left side of an `&&`
 or `||` operator.
 
-Unless otherwise noted, all library functions work fine with `set -u`,
-`set -o pipefail`, and `shopt -s inherit_errexit`.
+Unless otherwise noted, all library functions support
+`set -u`,
+`set -o pipefail`,
+and `shopt -s inherit_errexit`.
 
 == Usage
 
@@ -41,8 +43,8 @@ You can specify the qsh functions you want, or files to scan for qsh
 functions.
 Scanning just looks for qsh function names appearing anywhere in the
 file.
-The script will output code that defines the specified qsh functions
-along with any other qsh functions needed as dependencies.
+The script will output the specified qsh functions along with any other
+qsh functions needed as dependencies.
 
 For example:
 
