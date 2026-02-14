@@ -96,6 +96,7 @@ case $0 in (/* | ./*)
 esac
 src=${src%/*}/src
 
+hold=
 seen_once=
 seen_twice=
 
@@ -114,8 +115,6 @@ cat <<'EOF'
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 EOF
-
-unset hold
 
 while :; do
 
@@ -218,14 +217,14 @@ while :; do
     '
 
     case $func in (-)
-      deps=$(awk ${hold+-v hold=$hold} -- "$script")
+      deps=$(awk -v hold=$hold -- "$script")
     ;; (*)
-      deps=$(awk ${hold+-v hold=$hold} -- "$script" "$func")
+      deps=$(awk -v hold=$hold -- "$script" "$func")
     esac
 
-    case ${hold+x} in (?*)
+    case $hold in (?*)
       set -- $deps $hold "$@"
-      unset hold
+      hold=
     ;; (*)
       set -- $deps "$@"
     esac
