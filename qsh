@@ -36,7 +36,7 @@ qsh_barf() {
   for qsh_barf_arg; do
     qsh_barf_message="$qsh_barf_message $qsh_barf_arg"
   done
-  qsh_barf_message="$qsh_barf_message."
+  qsh_barf_message=$qsh_barf_message.
 
   printf '%s\n' "$qsh_barf_message" >&2
 
