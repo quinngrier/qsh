@@ -90,11 +90,11 @@ done
 set -- $funcs
 
 case $0 in (/* | ./*)
-  include=$0
+  src=$0
 ;; (*)
-  include=./$0
+  src=./$0
 esac
-include=${include%/*}/include
+src=${src%/*}/src
 
 seen_once=
 seen_twice=
@@ -150,7 +150,7 @@ while :; do
       continue
     esac
 
-    file=$include/$func.sh
+    file=$src/$func.sh
 
     case $seen_once in (*" $func "*)
       awk -- '
