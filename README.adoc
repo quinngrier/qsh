@@ -36,7 +36,7 @@ Clone this repository and run the `./qsh` script to generate code to
 copy into your own script.
 You can pass it the qsh function names you want, or files to scan for
 qsh function names.
-The script will output these qsh functions, along with any other qsh
+The script will output these qsh functions along with any other qsh
 functions needed as dependencies.
 
 For example:
