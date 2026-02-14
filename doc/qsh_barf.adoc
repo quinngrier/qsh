@@ -20,8 +20,8 @@ If at least one argument is given, the error message will be the
 space-separated concatenation of the arguments.
 Otherwise, the error message will default to `"Unknown error"`.
 
-The error message will always be prefixed with `"$0: Error: "` and
-suffixed with `"."`.
+The error message will be prefixed with `"$0: Error: "` and suffixed
+with `"."`.
 
 If `qsh_barf_status` is set, it will be used as the exit status.
 Otherwise, the exit status will default to 1.
