@@ -89,10 +89,15 @@ done
 
 set -- $funcs
 
-case $0 in (/* | ./*)
-  src=$0
+case ${QSH_SRC+x} in (?*)
+  src=$QSH_SRC/x
 ;; (*)
-  src=./$0
+  src=$0
+esac
+case $src in (/* | [!-]*/*)
+  :
+;; (*)
+  src=./$src
 esac
 src=${src%/*}/src
 
