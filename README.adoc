@@ -20,7 +20,6 @@ specification.
 The library consists of the functions in the `include` directory.
 Each function has its own file, but some functions may depend on others.
 Each function also has a documentation file in the `doc` directory.
-All identifiers that start with `qsh_` or `QSH_` are reserved.
 
 The library is generally fail-fast and requires you to use `set -e`.
 All other fail-fast error handling features provided by various shells
@@ -28,6 +27,8 @@ are also supported, such as `set -u` and `set -o pipefail`.
 However, unless otherwise noted, the library should not be called in any
 context where `set -e` is suspended, such as in an `if` compound-list or
 in the non-last command of an AND-OR list.
+
+The library reserves all identifiers that start with `qsh_` or `QSH_`.
 
 == Usage
 
