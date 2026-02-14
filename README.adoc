@@ -34,10 +34,10 @@ The library reserves all identifiers that start with `qsh_` or `QSH_`.
 
 Clone this repository and run the `./qsh` script to generate code to
 copy into your own script.
-You can specify the qsh functions you want, or files to scan for qsh
-function names.
-The script will output all necessary qsh functions in the dependency
-graph.
+You can pass it the qsh function names you want, or files to scan for
+qsh function names.
+The script will output these qsh functions, along with any other qsh
+functions needed as dependencies.
 
 For example:
 
