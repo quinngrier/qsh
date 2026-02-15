@@ -11,14 +11,14 @@
 = `qsh_warn`
 
 ----
-qsh_warn [<arg>...]
+qsh_warn [<text>...]
 ----
 
 Prints a warning message to `stderr`.
 
-If at least one argument is given, the warning message will be the
-space-separated concatenation of the arguments.
-Otherwise, the warning message will default to `"Unknown warning"`.
+If at least one `<text>` argument is given, the message will be the
+space-separated concatenation of the `<text>` arguments.
+Otherwise, the message will default to `"Unknown warning"`.
 
-The warning message will be prefixed with `"$0: Warning: "` and suffixed
-with `"."`.
+The message will be prefixed with `"$0: Warning: "` and suffixed with
+`"."`.
