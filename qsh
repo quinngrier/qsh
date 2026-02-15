@@ -227,12 +227,8 @@ while :; do
       deps=$(awk -v hold=$hold -- "$script" "$func")
     esac
 
-    case $hold in (?*)
-      set -- $deps $hold "$@"
-      hold=
-    ;; (*)
-      set -- $deps "$@"
-    esac
+    set -- $deps $hold "$@"
+    hold=
 
   esac
 
