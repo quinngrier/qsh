@@ -26,9 +26,9 @@ The library reserves all identifiers that start with `qsh_` or `QSH_`.
 
 Unless otherwise noted, all library functions are fail-fast and require
 you to use `set -e`.
-You also shouldn't call these functions in any context where `set -e` is
-suspended, such as in an `if` condition or on the left side of an `&&`
-or `||` operator.
+You also shouldn't call them in any context where `set -e` is suspended,
+such as in an `if` condition or on the left side of an `&&` or `||`
+operator.
 
 Unless otherwise noted, all library functions support
 `set -u`,
@@ -41,8 +41,7 @@ Clone this repository and run the `./qsh` script to generate code to
 copy into your own script.
 You can specify the qsh functions you want, or files to scan for qsh
 functions.
-Scanning just looks for qsh function names appearing anywhere in the
-file.
+Scanning just looks for qsh function names anywhere in the file.
 The script will output the specified qsh functions along with any other
 qsh functions needed as dependencies.
 
