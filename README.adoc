@@ -20,7 +20,7 @@ specification.
 The library consists of the functions in the `src` directory.
 Each function has its own file.
 Each function also has its own file in the `doc` directory.
-Some functions may depend on others, forming a dependency graph.
+Some functions may depend on others.
 
 The library reserves all identifiers that start with `qsh_` or `QSH_`.
 
