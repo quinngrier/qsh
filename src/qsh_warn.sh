@@ -15,8 +15,8 @@ qsh_warn() {
   esac
 
   qsh_warn_message="$0: Warning:"
-  for qsh_warn_arg; do
-    qsh_warn_message="$qsh_warn_message $qsh_warn_arg"
+  for qsh_warn_text; do
+    qsh_warn_message="$qsh_warn_message $qsh_warn_text"
   done
   qsh_warn_message=$qsh_warn_message.
 

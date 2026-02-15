@@ -15,8 +15,8 @@ qsh_barf() {
   esac
 
   qsh_barf_message="$0: Error:"
-  for qsh_barf_arg; do
-    qsh_barf_message="$qsh_barf_message $qsh_barf_arg"
+  for qsh_barf_text; do
+    qsh_barf_message="$qsh_barf_message $qsh_barf_text"
   done
   qsh_barf_message=$qsh_barf_message.
 
