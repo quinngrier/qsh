@@ -1,0 +1,27 @@
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+qsh_bug() {
+
+  case $# in (0)
+    set "Unknown bug"
+  esac
+
+  qsh_bug_message="$0: Bug:"
+  for qsh_bug_text; do
+    qsh_bug_message="$qsh_bug_message $qsh_bug_text"
+  done
+  qsh_bug_message=$qsh_bug_message.
+
+  printf '%s\n' "$qsh_bug_message" >&2
+
+  exit "${qsh_exit_status-3}"
+
+}
