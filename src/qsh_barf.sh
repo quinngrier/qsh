@@ -22,6 +22,6 @@ qsh_barf() {
 
   printf '%s\n' "$qsh_barf_message" >&2
 
-  exit "${qsh_barf_status-1}"
+  exit "${qsh_exit_status-1}"
 
 }

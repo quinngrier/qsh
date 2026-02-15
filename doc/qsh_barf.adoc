@@ -23,5 +23,5 @@ Otherwise, the message will default to `"Unknown error"`.
 The message will be prefixed with `"$0: Error: "` and suffixed with
 `"."`.
 
-If `qsh_barf_status` is set, it will be used as the exit status.
+If `qsh_exit_status` is set, it will be used as the exit status.
 Otherwise, the exit status will default to 1.
