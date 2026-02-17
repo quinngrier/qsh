@@ -10,7 +10,7 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
-set -e -u || exit $?
+set -e -u || exit
 
 #-----------------------------------------------------------------------
 #
