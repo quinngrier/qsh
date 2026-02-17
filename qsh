@@ -17,6 +17,8 @@
 set -e -u || exit
 
 #-----------------------------------------------------------------------
+# Set up qsh
+#-----------------------------------------------------------------------
 #
 # This section was generated using qsh.
 # See <https://github.com/quinngrier/qsh>.
