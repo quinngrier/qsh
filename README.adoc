@@ -57,6 +57,7 @@ For example:
 
 link:doc/qsh_barf.adoc[`qsh_barf`]
 link:doc/qsh_bug.adoc[`qsh_bug`]
+link:doc/qsh_csf.adoc[`qsh_csf`]
 link:doc/qsh_warn.adoc[`qsh_warn`]
 
 //

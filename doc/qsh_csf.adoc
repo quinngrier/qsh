@@ -1,0 +1,41 @@
+//
+// The authors of this file have waived all copyright and
+// related or neighboring rights to the extent permitted by
+// law as described by the CC0 1.0 Universal Public Domain
+// Dedication. You should have received a copy of the full
+// dedication along with this file, typically as a file
+// named <CC0-1.0.txt>. If not, it may be available at
+// <https://creativecommons.org/publicdomain/zero/1.0/>.
+//
+
+= `qsh_csf`
+
+----
+qsh_csf [<&var>...]
+----
+
+Helps read output that was written in CSF form.
+
+If no arguments are given, this function copies `stdin` to `stdout`,
+appending an `x` character and a newline character.
+Otherwise, for each `<&var>`, this function removes the last character
+from `<&var>` if it's an `x` character and removes the next last
+character if it's a newline character.
+
+This function lets you do command substitutions that only remove one
+trailing newline character instead of all trailing newline characters.
+For example, instead of writing `foo=$(bar)`, you can write
+`foo=$(bar | qsh_csf); qsh_csf foo`.
+
+You shouldn't call this function with no arguments if you're not using
+`set -o pipefail`.
+In this case, you can add `&& echo x` to your command instead.
+For example, instead of writing `foo=$(bar | qsh_csf)`, you can write
+`foo=$(bar && echo x)`.
+
+In general, when input is said to be "read in CSF form", it means the
+input is taken to be all characters up to but not including any final
+newline character.
+
+In general, when output is said to be "written in CSF form", it means
+the output is followed by one trailing newline character.
