@@ -8,9 +8,9 @@
 // <https://creativecommons.org/publicdomain/zero/1.0/>.
 //
 
-= qsh
+= Qsh
 
-qsh is a shell scripting library.
+Qsh is a shell scripting library.
 
 The library supports any POSIX-compatible shell and environment down to
 the
@@ -39,11 +39,11 @@ and `shopt -s inherit_errexit`.
 
 Clone this repository and run the `./qsh` script to generate code to
 copy into your own script.
-You can specify the qsh functions you want, or files to scan for qsh
+You can specify the Qsh functions you want, or files to scan for Qsh
 functions.
-Scanning just looks for qsh function names anywhere in the file.
-The script will output the specified qsh functions along with any other
-qsh functions needed as dependencies.
+Scanning just looks for Qsh function names anywhere in the file.
+The script will output the specified Qsh functions along with any other
+Qsh functions needed as dependencies.
 
 For example:
 

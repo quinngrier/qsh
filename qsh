@@ -17,10 +17,10 @@
 set -e -u || exit
 
 #-----------------------------------------------------------------------
-# Set up qsh
+# Set up Qsh
 #-----------------------------------------------------------------------
 #
-# This section was generated using qsh.
+# This section was generated using Qsh.
 # See <https://github.com/quinngrier/qsh>.
 #
 # The authors of this section have waived all copyright and
@@ -113,10 +113,10 @@ seen_twice=
 
 cat <<'EOF'
 #-----------------------------------------------------------------------
-# Set up qsh
+# Set up Qsh
 #-----------------------------------------------------------------------
 #
-# This section was generated using qsh.
+# This section was generated using Qsh.
 # See <https://github.com/quinngrier/qsh>.
 #
 # The authors of this section have waived all copyright and
