@@ -10,7 +10,7 @@
 
 = qsh
 
-qsh is a general-purpose shell scripting library.
+qsh is a shell scripting library.
 
 The library supports any POSIX-compatible shell and environment down to
 the
