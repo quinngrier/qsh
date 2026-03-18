@@ -48,6 +48,8 @@ option was parsed.
 
 `qsh_parse_option_arg`:: The argument of the option that was parsed, or
 unset if no option was parsed.
+This will also be unset if the option forbids an argument or permits an
+argument and the argument was omitted.
 
 `qsh_parse_option_pop`:: A code fragment that you should `eval`
 immediately after this function returns.
