@@ -49,11 +49,14 @@ Qsh functions needed as dependencies.
 
 For example:
 
-* `./qsh qsh_barf` will output the `qsh_barf` function.
+* `./qsh qsh_parse_option` will output the `qsh_parse_option` function
+and any other Qsh functions it needs as dependencies.
 
-* `./qsh foo.sh` will scan `foo.sh` for qsh functions and output them.
+* `./qsh foo.sh` will scan `foo.sh` for Qsh functions and output them
+and any other Qsh functions they need as dependencies.
 
-* `./qsh qsh_barf foo.sh` will combine the previous two examples.
+* `./qsh qsh_parse_option foo.sh` will combine the previous two
+examples.
 
 == Documentation
 
