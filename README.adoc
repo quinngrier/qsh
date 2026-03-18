@@ -59,6 +59,7 @@ link:doc/qsh_barf.adoc[`qsh_barf`]
 link:doc/qsh_bug.adoc[`qsh_bug`]
 link:doc/qsh_csf.adoc[`qsh_csf`]
 link:doc/qsh_parse_option.adoc[`qsh_parse_option`]
+link:doc/qsh_unknown_operand.adoc[`qsh_unknown_operand`]
 link:doc/qsh_unknown_option.adoc[`qsh_unknown_option`]
 link:doc/qsh_warn.adoc[`qsh_warn`]
 
