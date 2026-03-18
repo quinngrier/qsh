@@ -16,7 +16,7 @@ qsh_csf [<&var>...]
 
 Helps read input in CSF form.
 
-If no arguments are given, this function copies `stdin` to `stdout`,
+If no arguments are given, this function copies stdin to stdout,
 appending the string `csf` and a newline character.
 Otherwise, for each `<&var>`, this function removes the string `csf`
 from the end of `<&var>` if it's present, then removes the last
