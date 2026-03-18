@@ -24,7 +24,7 @@ directory.
 Some functions depend on others, forming a dependency graph, but there
 are no external dependencies other than POSIX.
 
-The library reserves all identifiers that start with `qsh_` or `QSH_`.
+The library reserves all identifiers that begin with `qsh_` or `QSH_`.
 
 Unless otherwise noted, all library functions are fail-fast and require
 you to use `set -e`.
