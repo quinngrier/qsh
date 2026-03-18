@@ -166,7 +166,7 @@ while :; do
 
     case $seen_once in (*" $func "*)
       # TODO: If --release is given, omit QSH_NDEBUG blocks.
-      #       Blocks like this: case ${QSH_NDEBUG+1} in ('')
+      #       Blocks like this: case ${QSH_NDEBUG+1} in ("")
       awk -- '
         {
           if ($0 ~ /^$/) {
@@ -203,7 +203,7 @@ while :; do
   ;; (file)
 
     # TODO: If --release is given, omit QSH_NDEBUG blocks when scanning.
-    #       Blocks like this: case ${QSH_NDEBUG+1} in ('')
+    #       Blocks like this: case ${QSH_NDEBUG+1} in ("")
 
     script='
       BEGIN {
