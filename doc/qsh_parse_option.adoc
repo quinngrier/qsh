@@ -1,0 +1,60 @@
+//
+// The authors of this file have waived all copyright and
+// related or neighboring rights to the extent permitted by
+// law as described by the CC0 1.0 Universal Public Domain
+// Dedication. You should have received a copy of the full
+// dedication along with this file, typically as a file
+// named <CC0-1.0.txt>. If not, it may be available at
+// <https://creativecommons.org/publicdomain/zero/1.0/>.
+//
+
+= `qsh_parse_option`
+
+----
+qsh_parse_option [<prefix>] <option>... [<style>] : "$@"
+----
+
+Parses an option from the beginning of the argument list.
+
+The `<option>` list specifies the option names to parse.
+Each `<option>` can be a short option name like `-f` or a long option
+name like `--foo`.
+You should typically use this function to parse one option, passing its
+different names as the `<option>` list.
+For example: `qsh_parse_option -f --foo : "$@"`.
+
+`<style>` specifies the option argument style.
+This can be either `required` to mean the option requires an argument,
+`forbidden` to mean the option forbids an argument, or `permitted` to
+mean the option permits an argument.
+If this is omitted, it defaults to `required`.
+
+The parsed option syntax is as follows.
+A long option with a required argument `--foo=<bar>` may also be written
+as `--foo <bar>`.
+A short option with a required argument `-f <bar>` may also be written
+as `-f<bar>` if the argument is not empty.
+A short option with a forbidden argument `-f` may be bundled with a
+subsequent short option or short option bundle `-g` by writing `-fg`
+instead of `-f -g`.
+
+When this function returns, the following variables will have been
+updated:
+
+`qsh_parse_option_got`:: `1` if an option was parsed, or `0` if not.
+
+`qsh_parse_option_opt`:: The option that was parsed, or unset if no
+option was parsed.
+
+`qsh_parse_option_arg`:: The argument of the option that was parsed, or
+unset if no option was parsed.
+
+`qsh_parse_option_pop`:: A code fragment that you should `eval`
+immediately after this function returns.
+The arguments will then be in a state that you can use `shift` to move
+to the next argument.
+
+If `<prefix>` is given, the updated variable names will begin with
+`<prefix>` instead of `qsh_parse_option_`.
+For example, in `qsh_parse_option bar_ -f --foo : "$@"`, the updated
+variable names will be `bar_got`, `bar_opt`, `bar_arg`, and `bar_pop`.
