@@ -50,10 +50,10 @@ Qsh functions needed as dependencies.
 For example:
 
 * `./qsh qsh_parse_option` will output the `qsh_parse_option` function
-and any other Qsh functions it needs as dependencies.
+along with any other Qsh functions it needs as dependencies.
 
 * `./qsh foo.sh` will scan `foo.sh` for Qsh functions and output them
-and any other Qsh functions they need as dependencies.
+along with any other Qsh functions they need as dependencies.
 
 * `./qsh qsh_parse_option foo.sh` will combine the previous two
 examples.
