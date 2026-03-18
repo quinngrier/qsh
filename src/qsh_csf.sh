@@ -12,11 +12,11 @@ qsh_csf() {
 
   case $# in (0)
     cat
-    echo x
+    echo csf
   ;; (*)
     for qsh_csf_var; do
       eval "
-        $qsh_csf_var=\${$qsh_csf_var%x}
+        $qsh_csf_var=\${$qsh_csf_var%csf}
         $qsh_csf_var=\${$qsh_csf_var%'
 '}
       "

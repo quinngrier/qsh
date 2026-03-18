@@ -17,10 +17,10 @@ qsh_csf [<&var>...]
 Helps read output that was written in CSF form.
 
 If no arguments are given, this function copies `stdin` to `stdout`,
-appending an `x` character and a newline character.
-Otherwise, for each `<&var>`, this function removes the last character
-from `<&var>` if it's an `x` character and removes the next last
-character if it's a newline character.
+appending the string `csf` and a newline character.
+Otherwise, for each `<&var>`, this function removes the string `csf`
+from the end of `<&var>` if it's present, then removes the last
+character from `<&var>` if it's a newline character.
 
 This function lets you do command substitutions that only remove one
 trailing newline character instead of all trailing newline characters.
@@ -29,9 +29,9 @@ For example, instead of writing `foo=$(bar)`, you can write
 
 You shouldn't call this function with no arguments if you're not using
 `set -o pipefail`.
-In this case, you can add `&& echo x` to your command instead.
+In this case, you can add `&& echo csf` to your command instead.
 For example, instead of writing `foo=$(bar | qsh_csf)`, you can write
-`foo=$(bar && echo x)`.
+`foo=$(bar && echo csf)`.
 
 In general, when output is said to be written in CSF form, it means the
 output is followed by one trailing newline character or the output does
