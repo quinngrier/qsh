@@ -14,7 +14,7 @@
 qsh_csf [<&var>...]
 ----
 
-Helps read output that was written in CSF form.
+Helps read input in CSF form.
 
 If no arguments are given, this function copies `stdin` to `stdout`,
 appending the string `csf` and a newline character.
