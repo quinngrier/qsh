@@ -17,11 +17,11 @@ qsh_parse_option [<prefix>] <option>... [<style>] : "$@"
 Parses an option from the beginning of the argument list.
 
 The `<option>` list specifies the option names to parse.
-Each `<option>` can be a short option name like `-f` or a long option
-name like `--foo`.
+Each `<option>` can be a long option name like `--foo` or a short option
+name like `-f`.
 You should typically use this function to parse one option, passing its
 different names as the `<option>` list.
-For example: `qsh_parse_option -f --foo : "$@"`.
+For example: `qsh_parse_option --foo -f : "$@"`.
 
 `<style>` specifies the option argument style.
 This can be either `required` to mean the option requires an argument,
