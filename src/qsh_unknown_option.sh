@@ -11,11 +11,9 @@
 qsh_unknown_option() {
 
   case ${QSH_NDEBUG+1} in ("")
-    case $# in (1)
-      :
-    ;; (*)
+    case $# in (0)
       qsh_barf "qsh_unknown_option:" \
-        "Exactly one argument must be given" \
+        "At least one argument must be given" \
       ;
     esac
   esac

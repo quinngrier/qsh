@@ -11,7 +11,8 @@
 = `qsh_unknown_option`
 
 ----
-qsh_unknown_option <arg>
+qsh_unknown_option <arg>...
 ----
 
-Rejects `<arg>` as unknown if it's an option.
+Rejects the first `<arg>` as unknown if it's an option.
+Ignores any subsequent `<arg>`s.

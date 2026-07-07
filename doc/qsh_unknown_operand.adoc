@@ -11,7 +11,8 @@
 = `qsh_unknown_operand`
 
 ----
-qsh_unknown_operand <arg>
+qsh_unknown_operand <arg>...
 ----
 
-Rejects `<arg>` as an unknown operand.
+Rejects the first `<arg>` as an unknown operand.
+Ignores any subsequent `<arg>`s.
