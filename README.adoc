@@ -12,10 +12,9 @@
 
 Qsh is a shell scripting library.
 
-The library supports any POSIX-compatible shell and environment down to
-the
-link:https://publications.opengroup.org/c43x[UNIX 95]
-specification.
+The library supports any shell and environment that are compatible with
+any version of POSIX down to the POSIX portion of
+link:https://publications.opengroup.org/c43x[UNIX 95].
 
 The library consists of the functions in the `src` directory, with each
 function having its own implementation file.
