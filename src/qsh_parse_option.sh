@@ -20,7 +20,7 @@ qsh_parse_option() {
 
   case $1 in (-? | --*)
     qsh_parse_option_prefix=qsh_parse_option_
-  ;; *)
+  ;; (*)
     qsh_parse_option_prefix=$1
     case ${QSH_NDEBUG+1} in ("")
       case ${qsh_parse_option_prefix} in (*[!0-9A-Z_a-z]* | [0-9]*)
@@ -154,7 +154,7 @@ qsh_parse_option() {
             shift
             set -- tmp -"${qsh_parse_option_tmp#??}" "$@"
           '\'
-        ;; *)
+        ;; (*)
           eval ${qsh_parse_option_prefix}arg='${1#??}'
           eval ${qsh_parse_option_prefix}pop=
         esac
