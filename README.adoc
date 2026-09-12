@@ -10,18 +10,16 @@
 
 = Qsh
 
-Qsh is a shell scripting library.
+Qsh is a basic shell scripting library.
 
 The library supports any shell and environment that are compatible with
-any version of POSIX down to the POSIX portion of
+any version of POSIX since
 link:https://publications.opengroup.org/c43x[UNIX 95].
+There are no dependencies other than standard POSIX utilities.
 
-The library consists of the functions in the `src` directory, with each
-function having its own implementation file.
-Each function also has its own documentation file in the `doc`
-directory.
-Some functions depend on others, forming a dependency graph, but there
-are no external dependencies other than POSIX.
+Each library function has its own implementation file in the
+link:src[`src`] directory and its own documentation file in the
+link:doc[`doc`] directory.
 
 The library reserves all identifiers that begin with `qsh_` or `QSH_`.
 
