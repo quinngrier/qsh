@@ -92,6 +92,7 @@ qsh_parse_option() {
   shift
 
   qsh_parse_option_opts_i=0
+  qsh_parse_option_opt=
 
   while :; do
 
