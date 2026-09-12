@@ -107,19 +107,19 @@ qsh_parse_option() {
     eval qsh_parse_option_opt=\$qsh_parse_option_opts_$qsh_parse_option_opts_i
 
     case $1 in ("$qsh_parse_option_opt")
-      eval ${qsh_parse_option_prefix}got=1
-      eval ${qsh_parse_option_prefix}opt=\$qsh_parse_option_opt
+      eval "$qsh_parse_option_prefix"got=1
+      eval "$qsh_parse_option_prefix"opt=\$qsh_parse_option_opt
       case $qsh_parse_option_style in (required)
         case $# in (1)
           qsh_barf \
             "Option requires an argument: $qsh_parse_option_opt" \
           ;
         esac
-        eval ${qsh_parse_option_prefix}arg=\$2
-        eval ${qsh_parse_option_prefix}pop=shift
+        eval "$qsh_parse_option_prefix"arg=\$2
+        eval "$qsh_parse_option_prefix"pop=shift
       ;; (*)
-        unset ${qsh_parse_option_prefix}arg
-        eval ${qsh_parse_option_prefix}pop=
+        unset "$qsh_parse_option_prefix"arg
+        eval "$qsh_parse_option_prefix"pop=
       esac
       return
     esac
@@ -132,28 +132,28 @@ qsh_parse_option() {
             "Option forbids an argument: $qsh_parse_option_opt" \
           ;
         esac
-        eval ${qsh_parse_option_prefix}got=1
-        eval ${qsh_parse_option_prefix}opt=\$qsh_parse_option_opt
-        eval ${qsh_parse_option_prefix}arg='${1#*=}'
-        eval ${qsh_parse_option_prefix}pop=
+        eval "$qsh_parse_option_prefix"got=1
+        eval "$qsh_parse_option_prefix"opt=\$qsh_parse_option_opt
+        eval "$qsh_parse_option_prefix"arg='${1#*=}'
+        eval "$qsh_parse_option_prefix"pop=
         return
       esac
 
     ;; (*)
 
       case $1 in ("$qsh_parse_option_opt"*)
-        eval ${qsh_parse_option_prefix}got=1
-        eval ${qsh_parse_option_prefix}opt=\$qsh_parse_option_opt
+        eval "$qsh_parse_option_prefix"got=1
+        eval "$qsh_parse_option_prefix"opt=\$qsh_parse_option_opt
         case $qsh_parse_option_style in (forbidden)
-          unset ${qsh_parse_option_prefix}arg
-          eval ${qsh_parse_option_prefix}pop=\''
+          unset "$qsh_parse_option_prefix"arg
+          eval "$qsh_parse_option_prefix"pop=\''
             qsh_parse_option_tmp=$1
             shift
             set -- tmp -"${qsh_parse_option_tmp#??}" "$@"
           '\'
         ;; (*)
-          eval ${qsh_parse_option_prefix}arg='${1#??}'
-          eval ${qsh_parse_option_prefix}pop=
+          eval "$qsh_parse_option_prefix"arg='${1#??}'
+          eval "$qsh_parse_option_prefix"pop=
         esac
         return
       esac
@@ -164,9 +164,9 @@ qsh_parse_option() {
 
   done
 
-  eval ${qsh_parse_option_prefix}got=0
-  unset ${qsh_parse_option_prefix}opt
-  unset ${qsh_parse_option_prefix}arg
-  eval ${qsh_parse_option_prefix}pop=
+  eval "$qsh_parse_option_prefix"got=0
+  unset "$qsh_parse_option_prefix"opt
+  unset "$qsh_parse_option_prefix"arg
+  eval "$qsh_parse_option_prefix"pop=
 
 }
