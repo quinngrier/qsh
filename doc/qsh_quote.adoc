@@ -1,0 +1,38 @@
+//
+// This file is published under the CC0 Public Domain Dedication.
+//
+
+= `qsh_quote`
+
+----
+qsh_quote <&dst> [<src>...]
+----
+
+Quotes words for reuse in the shell.
+
+Each `<src>` is quoted by replacing each `++'++` character with
+`++'\''++` and enclosing the result with `++'++` characters.
+The quoted results are collected, separated by space characters, and
+assigned to `<&dst>`.
+
+== Example {counter:example-number}
+
+.Code
+[source,sh]
+----
+qsh_quote x
+printf '[%s]\n' "$x"
+
+qsh_quote x hello world
+printf '[%s]\n' "$x"
+
+qsh_quote x "$x"
+printf '[%s]\n' "$x"
+----
+
+.Output
+----
+[]
+['hello' 'world']
+[''\''hello'\'' '\''world'\''']
+----
