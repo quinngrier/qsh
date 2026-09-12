@@ -1,5 +1,5 @@
 //
-// This file is published under the CC0 Public Domain Dedication.
+// This file is licensed under the MIT No Attribution license.
 //
 
 = `qsh_unknown_operand`
