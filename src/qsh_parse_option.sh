@@ -95,7 +95,7 @@ qsh_parse_option() {
 
   while :; do
 
-    case $qsh_parse_option_opts_i in ($qsh_parse_option_opts_n)
+    case $qsh_parse_option_opts_i in ("$qsh_parse_option_opts_n")
       break
     esac
 
