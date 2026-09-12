@@ -1,0 +1,8 @@
+#
+# This file is published under the CC0 Public Domain Dedication.
+#
+
+# SC2004 is a style warning that says to use $((x)) instead of $(($x)).
+# However, this is only valid in POSIX 2004 or later. We support older
+# versions of POSIX than that.
+disable=SC2004
