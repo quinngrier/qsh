@@ -1,6 +1,8 @@
 #
 # This file is published under the CC0 Public Domain Dedication.
 #
+# shellcheck shell=sh
+#
 
 qsh_parse_option() {
 
