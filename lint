@@ -1,0 +1,58 @@
+#! /bin/sh
+
+#
+# This file is published under the CC0 Public Domain Dedication.
+#
+
+#-----------------------------------------------------------------------
+# Set up initial error handling
+#-----------------------------------------------------------------------
+
+set -e -u || exit
+
+#-----------------------------------------------------------------------
+# Set up Qsh
+#-----------------------------------------------------------------------
+#
+# This section was generated using Qsh.
+# See <https://github.com/quinngrier/qsh>.
+# Qsh is published under the CC0 Public Domain Dedication.
+#
+
+qsh_barf() {
+
+  case $# in (0)
+    set "Unknown error"
+  esac
+
+  qsh_barf_message="$0: Error:"
+  for qsh_barf_text; do
+    qsh_barf_message="$qsh_barf_message $qsh_barf_text"
+  done
+  qsh_barf_message=$qsh_barf_message.
+
+  printf '%s\n' "$qsh_barf_message" >&2
+
+  exit "${qsh_exit_status-1}"
+
+}
+
+#-----------------------------------------------------------------------
+
+case $# in (0)
+  :
+;; (*)
+  qsh_barf "This script does not accept arguments"
+esac
+
+case $0 in (./lint)
+  :
+;; (*)
+  qsh_barf "This script must be run as ./lint from the repository root"
+esac
+
+exec shellcheck -- \
+  lint \
+  qsh \
+  src/*.sh \
+;
